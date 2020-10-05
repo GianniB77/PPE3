@@ -43,7 +43,6 @@ class='tabNonQuadrille'>
    {
       $nom = $row['nomEtab'];
       $id = $row['idEtab'];
-      $attrib = $row['totalChambresOccup'];
       echo "<tr class='ligneTabNonQuad'>";
       echo "<td width='52%'>".$nom."</td>";
       echo "<td width='16%' align='center'> ";
@@ -57,6 +56,7 @@ class='tabNonQuadrille'>
       $lgEtab = $rsEtab->fetchALL(PDO::FETCH_ASSOC);
       foreach ($lgEtab as $row) 
       {
+         $attrib = $row['totalChambresOccup'];
          echo "<td width='16%' align='center'>".$attrib."</td>";
       }
       if (!existeAttributionsEtab($connexion, $id)) 
