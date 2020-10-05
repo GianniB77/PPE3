@@ -52,7 +52,13 @@ class='tabNonQuadrille'>
       echo "<td width='16%' align='center'>";
       echo "<a href='modificationEtablissement.php?action=demanderModifEtab&amp;id=".$id."'>";
       echo "Modifier</a></td>";
-       echo "<td width='16%' align='center'>".$attrib."</td>";
+      $req = obtenirNbOccup($connexion,$id);
+      $rsEtab = $connexion->query($req);
+      $lgEtab = $rsEtab->fetchALL(PDO::FETCH_ASSOC);
+      foreach ($lgEtab as $row) 
+      {
+         echo "<td width='16%' align='center'>".$attrib."</td>";
+      }
       if (!existeAttributionsEtab($connexion, $id)) 
       {
          echo "<td width='16%' align='center'>";

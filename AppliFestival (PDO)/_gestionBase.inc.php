@@ -201,10 +201,10 @@ function existeAttributionsEtab($connexion, $id)
 }
 
 // Retourne le nombre de chambres occupées pour l'id étab transmis
-function obtenirNbOccup($connexion, $idEtab)
+function obtenirNbOccup($connexion, $id)
 {
    $req="SELECT IFNULL(sum(nombreChambres), 0) as totalChambresOccup from
-        Attribution where idEtab='$idEtab'";
+        Attribution where idEtab='$id'";
    $rsOccup=$connexion->query($req);
    $lgOccup=$rsOccup->fetch();
    return $lgOccup["totalChambresOccup"];
