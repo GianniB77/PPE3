@@ -35,8 +35,6 @@ class='tabNonQuadrille'>
 
    $req = obtenirReqEtablissements();
    $rsEtab = $connexion->query($req);
-   $req = obtenirNbOccup();
-   $rsEtab = $connexion->query($req);
    $lgEtab = $rsEtab->fetchALL(PDO::FETCH_ASSOC);
    // BOUCLE SUR LES ÉTABLISSEMENTS
    foreach ($lgEtab as $row) 
@@ -51,14 +49,8 @@ class='tabNonQuadrille'>
       echo "<td width='16%' align='center'>";
       echo "<a href='modificationEtablissement.php?action=demanderModifEtab&amp;id=".$id."'>";
       echo "Modifier</a></td>";
-      $req = obtenirNbOccup($connexion,$id);
-      $rsEtab = $connexion->query($req);
-      $lgEtab = $rsEtab->fetchALL(PDO::FETCH_ASSOC);
-      foreach ($lgEtab as $row) 
-      {
-         $attrib = $row['totalChambresOccup'];
-         echo "<td width='16%' align='center'>".$attrib."</td>";
-      }
+      $attrib = obtenirNbOccup($connexion,$id);
+      echo "<td width='16%' align='center'>".$attrib."</td>";
       if (!existeAttributionsEtab($connexion, $id)) 
       {
          echo "<td width='16%' align='center'>";
