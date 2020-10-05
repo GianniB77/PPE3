@@ -27,7 +27,7 @@ if (!selectBase($connexion))
 
 
 echo "
-<table width='70%' cellspacing='0' cellpadding='0' align='center' 
+<table width='80%' cellspacing='0' cellpadding='0' align='center' 
 class='tabNonQuadrille'>
    <tr class='enTeteTabNonQuad'>
       <td colspan='4'>Etablissements</td>
@@ -50,7 +50,26 @@ class='tabNonQuadrille'>
       echo "<a href='modificationEtablissement.php?action=demanderModifEtab&amp;id=".$id."'>";
       echo "Modifier</a></td>";
       $attrib = obtenirNbOccup($connexion,$id);
-      echo "<td width='16%' align='center'>".$attrib."</td>";
+      echo "<td width='16%'>Total attributions :".$attrib."</td>";
+      $req=obtenirReqEtablissementsAyantChambresAttribuées();
+      $rsEtab=$connexion->query($req);
+      $lgEtab=$rsEtab->fetchALL(PDO::FETCH_ASSOC);
+      foreach ($lgEtab as $row) 
+      {
+         $nbOffre=$row['nombreChambresOffertes'];
+      }
+      if ($attrib == $nbOffre) 
+      {
+         echo "<td width='16%' align='center'>";
+         echo "Complet";
+         echo "</td>";
+      }
+      else
+      {
+         echo "<td width='16%' align='center'>";
+         echo "Non Complet";
+         echo "</td>";
+      }
       if (!existeAttributionsEtab($connexion, $id)) 
       {
          echo "<td width='16%' align='center'>";
