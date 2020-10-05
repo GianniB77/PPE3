@@ -54,3 +54,4 @@ insert into Pays values ('Ita', 'Italie', 'IMAGE/Ita.png');
 insert into Pays values ('USA', 'Etats Unis', 'IMAGE/USA.png');
 insert into Pays values ('Fra', 'France', 'IMAGE/Fra.png');
 insert into Pays values ('GB', 'Grande Bretagne', 'IMAGE/GB.png');
+insert into Pays values ('NZ', 'Nouvelle Zelande', 'IMAGE/NZ.png');
