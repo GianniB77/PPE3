@@ -252,4 +252,9 @@ function obtenirNbOccupEquipe($connexion, $idEtab, $idEquipe)
       return 0;
 }
 
+function obtenirNomPaysEquipe($connexion)
+{
+   $req = "SELECT "
+}
+
 ?>
