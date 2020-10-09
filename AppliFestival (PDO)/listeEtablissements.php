@@ -30,7 +30,7 @@ echo "
 <table width='90%' cellspacing='0' cellpadding='0' align='center' 
 class='tabNonQuadrille'>
    <tr class='enTeteTabNonQuad'>
-      <td colspan='4'>Etablissements</td>
+      <td colspan='6'>Etablissements</td>
    </tr>";
 
    $req = obtenirReqEtablissements();
