@@ -25,40 +25,36 @@ if (!selectBase($connexion))
 // CETTE PAGE CONTIENT UN TABLEAU CONSTITUÉ D'1 LIGNE D'EN-TÊTE ET D'1 LIGNE PAR
 // ÉTABLISSEMENT
 
-
 echo "
-<table width='90%' cellspacing='0' cellpadding='0' align='center' 
-class='tabNonQuadrille'>
-   <tr class='enTeteTabNonQuad'>
-      <td colspan='6'>Etablissements</td>
-   </tr>";
+<table width='60%' cellspacing='0' cellpadding='0' align='center' class='styled-table'>
+   <thead>
+      <tr>
+         <td colspan='6'>Etablissements</td>
+      </tr>
+   </thead> 
+   <tbody>";
 
    $req = obtenirReqEtablissements();
    $rsEtab = $connexion->query($req);
    $lgEtab = $rsEtab->fetchALL(PDO::FETCH_ASSOC);
+
    // BOUCLE SUR LES ÉTABLISSEMENTS
    foreach ($lgEtab as $row) 
    {
       $nom = $row['nomEtab'];
       $id = $row['idEtab'];
-      echo "<tr class='ligneTabNonQuad'>";
+      echo "<tr>";
       echo "<td width='52%'>".$nom."</td>";
       echo "<td width='16%' align='center'> ";
       echo "<a href='detailEtablissement.php?idEtab=".$id."'>";
-      echo "Voir détail</a></td>";
+      echo "<img src='IMAGE/voir.png'weight='50' height='50'/> </a></td>";
       echo "<td width='16%' align='center'>";
       echo "<a href='modificationEtablissement.php?action=demanderModifEtab&amp;id=".$id."'>";
-      echo "Modifier</a></td>";
-      $attrib = obtenirNbOccup($connexion,$id);
-      echo "<td width='16%'>Attributions ".$attrib."</td>";
-      $req=obtenirReqEtablissementsAyantChambresAttribuées();
-      $rsEtab=$connexion->query($req);
-      $lgEtab=$rsEtab->fetchALL(PDO::FETCH_ASSOC);
-      foreach ($lgEtab as $row) 
-      {
-         $nbOffre=$row['nombreChambresOffertes'];
-      }
-      if ($attrib == $nbOffre) 
+      echo "<img src='IMAGE/modifier.png'weight='50' height='50'/> </a></td>";
+      $nbattrib = obtenirNbOccup($connexion,$id);
+      echo "<td width='16%'> <img src='IMAGE/attributions.png'weight='50' height='50'/>".$nbattrib."</td>";
+      $nbOffre=obtenirReqEtablissementsAyantChambresAttribuées2($connexion,$id);
+      if ($nbOffre == $nbattrib) 
       {
          echo "<td width='16%' align='center'>";
          echo "Complet";
@@ -74,7 +70,7 @@ class='tabNonQuadrille'>
       {
          echo "<td width='16%' align='center'>";
          echo "<a href='suppressionEtablissement.php?action=demanderSupprEtab&amp;id=".$id."'>";
-         echo "Supprimer</a></td>";
+         echo "<img src='IMAGE/supprimer.png'weight='50' height='50'/> </a></td>";
       }
       else
       {
@@ -82,10 +78,12 @@ class='tabNonQuadrille'>
       }
    }
    echo "</tr>";
-   echo "<tr class='ligneTabNonQuad'>";
-   echo "<td colspan='4'><a href='creationEtablissement.php?action=demanderCreEtab'> Création d'un établissement</a ></td>";
+   echo "<tr>";
+   echo "<td colspan='6'><a href='creationEtablissement.php?action=demanderCreEtab'><img src='IMAGE/creation.png'weight='50' height='50'/></a ></td>";
       echo "</tr>";
+      echo "</tbody>";
    echo "</table>";
+
 
    /*while ($lgEtab!=FALSE)
    {

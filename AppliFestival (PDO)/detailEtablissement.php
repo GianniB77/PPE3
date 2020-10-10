@@ -41,61 +41,61 @@ $nombreChambresOffertes=$lgEtab['nombreChambresOffertes'];
 
 echo "
 <table width='60%' cellspacing='0' cellpadding='0' align='center' 
-class='tabNonQuadrille'>
-   
-   <tr class='enTeteTabNonQuad'>
-      <td colspan='3'>$nom</td>
-   </tr>
-   <tr class='ligneTabNonQuad'>
-      <td  width='20%'> Id: </td>
-      <td>$id</td>
-   </tr>
-   <tr class='ligneTabNonQuad'>
-      <td> Adresse: </td>
-      <td>$adresseRue</td>
-   </tr>
-   <tr class='ligneTabNonQuad'>
-      <td> Code postal: </td>
-      <td>$codePostal</td>
-   </tr>
-   <tr class='ligneTabNonQuad'>
-      <td> Ville: </td>
-      <td>$ville</td>
-   </tr>
-   <tr class='ligneTabNonQuad'>
-      <td> Téléphone: </td>
-      <td>$tel</td>
-   </tr>
-   <tr class='ligneTabNonQuad'>
-      <td> E-mail: </td>
-      <td>$adresseElectronique</td>
-   </tr>
-   <tr class='ligneTabNonQuad'>
-      <td> Type: </td>";
-      if ($type==1)
-      {
-         echo "<td> Etablissement scolaire </td>";
-      }
-      else
-      {
-         echo "<td> Autre établissement </td>";
-      }
-   echo "
-   </tr>
-   <tr class='ligneTabNonQuad'>
-      <td> Responsable: </td>
-      <td>$civiliteResponsable&nbsp; $nomResponsable&nbsp; $prenomResponsable
-      </td>
-   </tr> 
-   <tr class='ligneTabNonQuad'>
-      <td> Offre: </td>
-      <td>$nombreChambresOffertes&nbsp;chambre(s)</td>
-   </tr>
-</table>
-<table align='center'>
-   <tr>
-      <td align='center'><a href='listeEtablissements.php'>Retour</a>
-      </td>
-   </tr>
+class='styled-table'>
+   <thead>
+      <tr>
+         <td colspan='3'>$nom</td>
+      </tr>
+   </thead>
+   <tbody>
+      <tr>
+         <td  width='20%'> Id: </td>
+         <td>$id</td>
+      </tr>
+      <tr>
+         <td> Adresse: </td>
+         <td>$adresseRue</td>
+      </tr>
+      <tr>
+         <td> Code postal: </td>
+         <td>$codePostal</td>
+      </tr>
+      <tr>
+         <td> Ville: </td>
+         <td>$ville</td>
+      </tr>
+      <tr>
+         <td> Téléphone: </td>
+         <td>$tel</td>
+      </tr>
+      <tr>
+         <td> E-mail: </td>
+         <td>$adresseElectronique</td>
+      </tr>
+      <tr>
+         <td> Type: </td>";
+         if ($type==1)
+         {
+            echo "<td> Etablissement scolaire </td>";
+         }
+         else
+         {
+            echo "<td> Autre établissement </td>";
+         }
+      echo "
+      </tr>
+      <tr>
+         <td> Responsable: </td>
+         <td>$civiliteResponsable&nbsp; $nomResponsable&nbsp; $prenomResponsable
+         </td>
+      </tr> 
+      <tr>
+         <td> Offre: </td>
+         <td>$nombreChambresOffertes&nbsp;chambre(s)</td>
+      </tr>
+      <tr>
+         <td colspan='6' align='center'><a href='listeEtablissements.php'>Retour</a></td>
+      </tr>   
+   </tbody>
 </table>";
 ?>

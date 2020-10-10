@@ -2,7 +2,7 @@
 include ('_debut.inc.php');
 include('_gestionBase.inc.php');
 include ('_controlesEtGestionErreurs.inc.php');
-//include ('_fin.inc.php');
+include ('_fin.inc.php');
 
 // CONNEXION AU SERVEUR MYSQL PUIS SELECTION DE LA BASE DE DONNES festival
 
@@ -45,13 +45,14 @@ if ($action == 'validerModifAttrib')
 	$nbChambres = $_REQUEST['nbChambres'];
 	modifierAttribChamb($connexion,$idEtab,$idEquipe,$nbChambres);
 }
-echo "<table width='80%' cellspacing='0' cellpadding='0' align='center'class='tabQuadrille'>";
+echo "<table width='80%' cellspacing='0' cellpadding='0' align='center'class='styled-table'>";
 // AFFICHAGE DE LA 1ÈRE LIGNE D'EN-TÊTE
-echo "<tr class='enTeteTabQuad'>";
+echo "<thead>";
+echo "<tr>";
 echo "<td colspan=$nb><strong>Attributions</strong></td>";
 echo "</tr>";
 // AFFICHAGE DE LA 2ÈME LIGNE D'EN-TÊTE (ÉTABLISSEMENTS)
-echo "<tr class='ligneTabQuad'>";
+echo "<tr>";
 echo "<td>&nbsp;</td>";
 $req = obtenirReqEtablissementsOffrantChambres();
 $rsEtab = $connexion->query($req);
@@ -69,7 +70,8 @@ foreach ($lgEtab as $row)
     echo "<br> $nom </td>";
 }
 echo "</tr>";
-
+echo "</thead>";
+echo "<tbody>";
 $req = obtenirReqIdNomEquipesAHeberger();
 $rsEquipe = $connexion->query($req);
 $lgEquipe = $rsEquipe->fetchALL(PDO::FETCH_ASSOC);
@@ -77,7 +79,7 @@ foreach ($lgEquipe as $row)
 {
 	$idEquipe = $row['idEquipe'];
 	$nom = $row['nomEquipe'];
-	echo "<tr class= 'ligneTabQuad'>";
+	echo "<tr>";
 	echo "<td width = '25%'>$nom</td>";
 	$req = obtenirReqEtablissementsOffrantChambres();
 	$rsEtab = $connexion->query($req);
@@ -123,7 +125,7 @@ foreach ($lgEquipe as $row)
 		}
 	}
 }
-echo "</table>";
+echo "</tbody></table>";
 echo "<table align='center' width='80%'>
    <tr>
       <td width='34%' align='left'><a href='consultationAttributions.php'>Retour</a>

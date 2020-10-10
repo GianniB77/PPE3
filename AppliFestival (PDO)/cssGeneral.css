@@ -3,40 +3,104 @@
 ne soit pas utile ; ceci permet une validation du W3C sans avertissement. 
 Idem pour background-color) */
 
-/* Style de base pour la page (couleur fond : ocre, couleur texte : noir) */
-.basePage 
+body
 {
-   background-color:#B5B5B5;
-   color:black;
-   font:20px Arial, Helvetica, sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight:400px;
+  overflow:hidden;
+  }
+
+a{
+   color: #000000;
 }
 
-/* Style pour le titre (couleur du texte : rouge) */
-.titre 
+.intro
 {
-   background-color:#FFFFFF;
-   color:black;
-   font:20px Arial, Helvetica, sans-serif;
-   text-align:center;
-   font-weight: bold;
+   font-size: 25px;
 }
+
 
 /* Style pour le texte de 2ème niveau du titre */
 .texteNiveau2
 {
-   font:20px Arial, Helvetica, sans-serif;
+   font: 30px Arial, Helvetica, sans-serif;
    font-weight: bold;
 }
 
-/* Style pour le texte de la page d'accueil (couleur : bleu foncé avec mise en
-gras et en italique) */
-.texteAccueil
+.navbar
 {
-   background-color:#B5B5B5;
-   color:black;       
-   font:20px Georgia, "Times New Roman", Times, serif;
-   font-weight:bold;
+   overflow: hidden;
+   background-color: #009879;
+   position: fixed; 
+   top: 0; 
+   width: 100%; 
 }
+
+.navbar a 
+{
+  float: left;
+  display: block;
+  color: #ffffff;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+.navbar a:hover 
+{
+  background: #ffffff;
+  color: #009879;
+}
+
+.main 
+{
+  margin-top: 30px;
+}
+
+.styled-table {
+    border-collapse: collapse;
+    font-family: Arial, Helvetica, sans-serif;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+}
+
+.styled-table thead tr {
+    background-color:#009879;
+    color: #ffffff;
+    text-align: center;
+}
+
+.styled-table td {
+    padding: 12px 15px;
+    text-align: center;
+}
+
+.styled-table tbody tr {
+    border-bottom: 1px solid #dddddd;
+}
+
+.styled-table tbody tr:nth-of-type(even) {
+    background-color: #f3f3f3;
+}
+
+.styled-table tbody tr:last-of-type {
+    border-bottom: 2px solid #009879;
+}
+
+.reserveSiLien
+{
+   background-color:#009879;
+   color:black;
+}
+
+
+.reserve
+{
+   background-color:#025444;
+   color:black;
+}
+
+
+
+
 
 /* Style pour le texte dans les différentes balises citées */
 td,tr 
@@ -64,15 +128,16 @@ table.tabMenu td
 } 
 
 /* Style pour les éléments du menu (mise en gras et italique) */ 
-.menu
+/*.menu
 {
    font:20px Georgia, "Times New Roman", Times, serif;
    font-weight:bold;
    text-align:left;
-}
+}*/
 .fe
 {
-   color:#FFFFFF;
+   color:#000000;
+   font: 10px;
    text-decoration: none;
 }
 /* STYLES POUR LES TABLEAUX QUADRILLÉS */
@@ -92,7 +157,7 @@ table.tabQuadrille td
 nuances de jaune et texte centré */
 tr.enTeteTabQuad
 {
-   background-image:url('../images/xpBarre.jpg');
+   /*background-image:url('IMAGE/xpBarre.jpg');*/
    height:21px;
    text-align:center;
 } 
@@ -112,7 +177,7 @@ tr.ligneTabQuad
 1px */
 table.tabNonQuadrille 
 {
-   background-color:#FFFFFF;
+   background-color:#009879;
    border-bottom:1px solid #777777;
    border-right:1px solid #777777;
    border-left:1px solid #777777;
@@ -125,7 +190,7 @@ nuances de jaune, texte centré et en gras et trait bas pour séparer l'en-tête
 corps du tableau */
 tr.enTeteTabNonQuad td
 {
-   background-image:url('../images/xpBarre.jpg');
+   /*background-image:url('IMAGE/xpBarre.jpg');*/
    height:21px;
    text-align:center;
    font-weight:bold;
@@ -137,7 +202,7 @@ quadrillés : fond écru, hauteur plus importante, texte aligné à gauche et
 espacement de 3px entre la bordure gauche de chaque cellule et le texte */
 tr.ligneTabNonQuad td
 {
-   background-color: #FFFFFF;
+   background-color: #006C37;
    height:28px;
    text-align:left;
    padding-left:3px;
@@ -157,22 +222,11 @@ COULEUR DU TEXTE : ROSE) */
 /* STYLES POUR LES ATTRIBUTIONS */
 
 /* Fond blanc */
-td.reserveSiLien
-{
-   background-color:#FFFFFF;
-   color:black;
-}
 
-/* Fond parme */
-td.reserve
-{
-   background-color:#FFBEFF;
-   color:black;
-}
 /* Style Footer*/
 .Bas
 {
-   background-color:#000000;
+   background-color:#009879;
    bottom: 0;
    position: fixed;
    text-align: center;
@@ -180,7 +234,6 @@ td.reserve
 }
 .fx
 {
-   font:20px Arial, Helvetica, sans-serif;
-   font-weight: bold;
+   font:15px Arial, Helvetica, sans-serif;
    color: #FFFFFF;
 }

@@ -44,21 +44,24 @@ if ($nbEtab!=0)
       $idEtab=$row['idEtab'];
       $nomEtab=$row['nomEtab'];
       echo "<table width='75%' cellspacing='0' cellpadding='0' align='center' 
-      class='tabQuadrille'>";
+      class='styled-table'>";
+      echo "<thead>";
       $nbOffre=$row['nombreChambresOffertes'];
       $nbOccup=obtenirNbOccup($connexion, $idEtab);
       // Calcul du nombre de chambres libres dans l'établissement
       $nbChLib = $nbOffre - $nbOccup;
       // AFFICHAGE DE LA 1ÈRE LIGNE D'EN-TÊTE 
       echo "
-      <tr class='enTeteTabQuad'>
+      <tr>
          <td colspan='2' align='left'><strong>$nomEtab</strong>&nbsp;
          (Offre : $nbOffre&nbsp;&nbsp;Disponibilités : $nbChLib)
          </td>
-      </tr>"; 
+      </tr>
+      </thead>"; 
       // AFFICHAGE DE LA 2ÈME LIGNE D'EN-TÊTE 
       echo "
-      <tr class='ligneTabQuad'>
+      <tbody>
+      <tr>
          <td width='65%' align='left'><i><strong>Nom Equipe</strong></i></td>
          <td width='35%' align='left'><i><strong>Chambres attribuées</strong></i>
          </td>
@@ -73,7 +76,7 @@ if ($nbEtab!=0)
          $idEquipe=$row['idEquipe'];
          $nomEquipe=$row['nomEquipe'];
          echo "
-         <tr class='ligneTabQuad'>
+         <tr>
             <td width='65%' align='left'>$nomEquipe</td>";
          // On recherche si des chambres ont déjà été attribuées à ce Equipe
          // dans l'établissement
@@ -84,7 +87,7 @@ if ($nbEtab!=0)
       }
          
    }
-   echo "</table><br>";
+   echo "</tbody></table><br>";
 }
 /*$nbEtab=obtenirNbEtabOffrantChambres($connexion);
 if ($nbEtab!=0)

@@ -72,51 +72,63 @@ else
    }
 }
 
+// En cas de validation du formulaire : affichage des erreurs ou du message de 
+// confirmation
+if ($action=='validerModifEtab')
+{
+   if (nbErreurs()!=0)
+   {
+      afficherErreurs();
+   }
+   else
+   {
+      echo "La modification a été effectuée !<img src='IMAGE/validation.png' alt='image de validation' id='validation'weight='40' height='40/> ";
+   }
+}
+
 echo "
 <form method='POST' action='modificationEtablissement.php?'>
    <input type='hidden' value='validerModifEtab' name='action'>
-   <table width='85%' cellspacing='0' cellpadding='0' align='center' 
-   class='tabNonQuadrille'>
-   
-      <tr class='enTeteTabNonQuad'>
-         <td colspan='3'>$nom ($id)</td>
-      </tr>
-      <tr>
-         <td><input type='hidden' value='$id' name='id'></td>
-      </tr>";
-      
+   <table width='90%' cellspacing='0' cellpadding='0' align='center' class='styled-table'>
+      <thead>
+         <tr>
+            <td colspan='5'>$nom ($id)</td>
+            <td><input type='hidden' value='$id' name='id'></td>
+         </tr>
+      </thead>";
       echo '
-      <tr class="ligneTabNonQuad">
+      <tbody>
+      <tr>
          <td> Nom*: </td>
          <td><input type="text" value="'.$nom.'" name="nom" size="50" 
          maxlength="45"></td>
       </tr>
-      <tr class="ligneTabNonQuad">
+      <tr>
          <td> Adresse*: </td>
          <td><input type="text" value="'.$adresseRue.'" name="adresseRue" 
          size="50" maxlength="45"></td>
       </tr>
-      <tr class="ligneTabNonQuad">
+      <tr>
          <td> Code postal*: </td>
          <td><input type="text" value="'.$codePostal.'" name="codePostal" 
          size="4" maxlength="5"></td>
       </tr>
-      <tr class="ligneTabNonQuad">
+      <tr>
          <td> Ville*: </td>
          <td><input type="text" value="'.$ville.'" name="ville" size="40" 
          maxlength="35"></td>
       </tr>
-      <tr class="ligneTabNonQuad">
+      <tr>
          <td> Téléphone*: </td>
          <td><input type="text" value="'.$tel.'" name="tel" size ="20" 
          maxlength="10"></td>
       </tr>
-      <tr class="ligneTabNonQuad">
+      <tr>
          <td> E-mail: </td>
          <td><input type="text" value="'.$adresseElectronique.'" name=
          "adresseElectronique" size ="75" maxlength="70"></td>
       </tr>
-      <tr class="ligneTabNonQuad">
+      <tr>
          <td> Type*: </td>
          <td>';
             if ($type==1)
@@ -136,10 +148,10 @@ echo "
            echo "
            </td>
          </tr>
-         <tr class='ligneTabNonQuad'>
+         <tr>
             <td colspan='2' ><strong>Responsable:</strong></td>
          </tr>
-         <tr class='ligneTabNonQuad'>
+         <tr'>
             <td> Civilité*: </td>
             <td> <select name='civiliteResponsable'>";
                for ($i=0; $i<3; $i=$i+1)
@@ -160,11 +172,12 @@ echo "
                "prenomResponsable" size="26" maxlength="25">
             </td>
          </tr>
-         <tr class="ligneTabNonQuad">
+         <tr>
             <td> Nombre chambres offertes*: </td>
             <td><input type="text" value="'.$nombreChambresOffertes.'" name=
             "nombreChambresOffertes" size ="2" maxlength="3"></td>
          </tr>
+         </tbody>
    </table>';
    
    echo "
@@ -179,23 +192,7 @@ echo "
          <td colspan='2' align='center'><a href='listeEtablissements.php'>Retour</a>
          </td>
       </tr>
-   </table>
-  
+   </table> 
 </form>";
-
-// En cas de validation du formulaire : affichage des erreurs ou du message de 
-// confirmation
-if ($action=='validerModifEtab')
-{
-   if (nbErreurs()!=0)
-   {
-      afficherErreurs();
-   }
-   else
-   {
-      echo "
-      <h5><center>La modification de l'établissement a été effectuée</center></h5>";
-   }
-}
 
 ?>

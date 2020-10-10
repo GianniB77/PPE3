@@ -52,6 +52,14 @@ function obtenirReqEtablissementsAyantChambresAttribuées()
    return $req;
 }
 
+function obtenirReqEtablissementsAyantChambresAttribuées2($connexion,$id)
+{
+   $req="SELECT nombreChambresOffertes FROM Etablissement WHERE idEtab ='$id'";
+   $rsEtab = $connexion->query($req);
+   $lsEtab = $rsEtab->fetch();
+   return $lsEtab;
+}
+
 function obtenirDetailEtablissement($connexion, $id)
 {
    $req = "SELECT * from Etablissement where idEtab='$id'";
@@ -219,16 +227,27 @@ function modifierAttribChamb($connexion, $idEtab, $idEquipe, $nbChambres)
    $rsAttrib=$connexion->query($req);
    $lgAttrib=$rsAttrib->fetch();
    if ($nbChambres==0)
+   {
       $req="DELETE from Attribution where idEtab='$idEtab' and idEquipe='$idEquipe'";
+      $rsAttrib1=$connexion->exec($req);
+      $rsAttrib1=null;
+   } 
    else
    {
       if ($lgAttrib["nombreAttribEquipe"]!=0)
+      {
          $req="UPDATE Attribution set nombreChambres=$nbChambres where idEtab=
               '$idEtab' and idEquipe='$idEquipe'";
+         $rsAttrib2=$connexion->exec($req);
+         $rsAttrib2=null;
+      }  
       else
+      {
          $req="INSERT into Attribution values('$idEtab','$idEquipe', $nbChambres)";
+         $rsAttrib3=$connexion->exec($req);
+         $rsAttrib3=null;
+      }
    }
-	$connexion->query($req);
 }
 
 // Retourne la requête permettant d'obtenir les id et noms des Equipes affectés
