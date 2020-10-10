@@ -43,6 +43,7 @@ echo "
    {
       $nom = $row['nomEtab'];
       $id = $row['idEtab'];
+      $nbOffre=$row['nombreChambresOffertes'];
       echo "<tr>";
       echo "<td width='52%'>".$nom."</td>";
       echo "<td width='16%' align='center'> ";
@@ -53,7 +54,6 @@ echo "
       echo "<img src='IMAGE/modifier.png'weight='50' height='50'/> </a></td>";
       $nbattrib = obtenirNbOccup($connexion,$id);
       echo "<td width='16%'> <img src='IMAGE/attributions.png'weight='50' height='50'/>".$nbattrib."</td>";
-      $nbOffre=obtenirReqEtablissementsAyantChambresAttribuées2($connexion,$id);
       if ($nbOffre == $nbattrib) 
       {
          echo "<td width='16%' align='center'>";

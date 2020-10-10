@@ -12,9 +12,9 @@ echo '
 </head>
 
 <div class="navbar">
-  <a href="index.php" class="fe">Accueil</a>
-  <a href="listeEtablissements.php" class="fe">Gestion</a>
-  <a href="consultationAttributions.php" class="fe">Attributions</a>
+  <a href="index.php">Accueil</a>
+  <a href="listeEtablissements.php">Gestion</a>
+  <a href="consultationAttributions.php">Attributions</a>
 </div>
 
 <div class="main">

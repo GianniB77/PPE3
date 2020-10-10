@@ -34,7 +34,7 @@ function SELECTBase($connexion)
 
 function obtenirReqEtablissements()
 {
-   $req="SELECT idEtab, nomEtab FROM Etablissement ORDER BY idEtab";
+   $req="SELECT idEtab, nomEtab,nombreChambresOffertes FROM Etablissement ORDER BY idEtab";
    return $req;
 }
 
@@ -52,13 +52,6 @@ function obtenirReqEtablissementsAyantChambresAttribuées()
    return $req;
 }
 
-function obtenirReqEtablissementsAyantChambresAttribuées2($connexion,$id)
-{
-   $req="SELECT nombreChambresOffertes FROM Etablissement WHERE idEtab ='$id'";
-   $rsEtab = $connexion->query($req);
-   $lsEtab = $rsEtab->fetch();
-   return $lsEtab;
-}
 
 function obtenirDetailEtablissement($connexion, $id)
 {
@@ -270,10 +263,5 @@ function obtenirNbOccupEquipe($connexion, $idEtab, $idEquipe)
    else
       return 0;
 }
-
-//function obtenirNomPaysEquipe($connexion)
-//{
-   //$req = "SELECT "
-//}
 
 ?>

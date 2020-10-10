@@ -1,9 +1,13 @@
 
 GRANT ALL ON festival . * TO 'festival'@'localhost' IDENTIFIED BY 'secret';
 
-DROP TABLE IF EXISTS `Attribution`;
-DROP TABLE IF EXISTS `Groupe`;
-DROP TABLE IF EXISTS `Etablissement`;
+DROP DATABASE IF EXISTS Festival;
+DROP TABLE IF EXISTS Attribution;
+DROP TABLE IF EXISTS Groupe;
+DROP TABLE IF EXISTS Etablissement;
+
+CREATE DATABASE Festival;
+USE Festival;
 
 create table Etablissement 
 (idEtab char(8) not null, 
@@ -19,6 +23,13 @@ nomResponsable varchar(25) not null,
 prenomResponsable varchar(25),
 nombreChambresOffertes integer,
 constraint pk_Etablissement primary key(idEtab))
+ENGINE=INNODB;
+
+create table Pays
+(idPays char(3) not null, 
+nomPays char(30) not null,
+drapeau varchar(15) not null,
+constraint pk_Attribution primary key(idPays)) 
 ENGINE=INNODB;
 
 create table Equipe
@@ -37,11 +48,4 @@ create table Attribution
 idEquipe char(4) not null references Equipe(idEquipe), 
 nombreChambres integer not null,
 constraint pk_Attribution primary key(idEtab, idEquipe)) 
-ENGINE=INNODB;
-
-create table Pays
-(idPays char(3) not null, 
-nomPays char(30) not null,
-drapeau varchar(15) not null,
-constraint pk_Attribution primary key(idPays)) 
 ENGINE=INNODB;

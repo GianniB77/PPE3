@@ -115,7 +115,7 @@ foreach ($lgEquipe as $row)
 			if ($nbChLib != 0) 
 			{
 				echo "<td class = 'reserveSiLien'>";
-				echo "<a href='donnerNbChambres.php?idEtab=$idEtab&amp;idEquipe=$idEquipe&amp;nbChambres=$nbChLib'>_</a>";
+				echo "<a href='donnerNbChambres.php?idEtab=$idEtab&amp;idEquipe=$idEquipe&amp;nbChambres=$nbChLib'><img src='IMAGE/creation.png'weight='50' height='50'/></a>";
 				echo "</td>";
 			}
 			else

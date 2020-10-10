@@ -56,6 +56,7 @@ a{
   margin-top: 30px;
 }
 
+
 .styled-table {
     border-collapse: collapse;
     font-family: Arial, Helvetica, sans-serif;
@@ -98,119 +99,6 @@ a{
    color:black;
 }
 
-
-
-
-
-/* Style pour le texte dans les différentes balises citées */
-td,tr 
-{
-   font:20px Arial, Helvetica, sans-serif;
-}
-
-/* STYLES POUR LES MENUS */
-
-/* Style du tableau contenant les éléments de menu : fond bleu ciel, épaisseur 
-1px, espacement de 3x entre la bordure gauche de chaque cellule et le texte et
-texte centré */
-table.tabMenu td
-{
-   background-color:#000000;
-   color:black;
-   border-bottom:1px solid #777777;
-   border-right:1px solid #777777;
-   border-left:1px solid #777777;
-   border-top:1px solid #777777;
-   padding-left:3px;
-   width:33%;
-   height:18px;
-   text-align:center;
-} 
-
-/* Style pour les éléments du menu (mise en gras et italique) */ 
-/*.menu
-{
-   font:20px Georgia, "Times New Roman", Times, serif;
-   font-weight:bold;
-   text-align:left;
-}*/
-.fe
-{
-   color:#000000;
-   font: 10px;
-   text-decoration: none;
-}
-/* STYLES POUR LES TABLEAUX QUADRILLÉS */
-
-/* Style des tableaux avec quadrillage : épaisseur du quadrillage 1px, 
-espacement de 3x entre la bordure gauche de chaque cellule et le texte */
-table.tabQuadrille td
-{
-   border-bottom:1px solid #777777;
-   border-right:1px solid #777777;
-   border-left:1px solid #777777;
-   border-top:1px #777777;
-   padding-left:3px;
-} 
-
-/* Style pour la 1ère ligne d'en-tête des tableaux quadrillés : fond avec 
-nuances de jaune et texte centré */
-tr.enTeteTabQuad
-{
-   /*background-image:url('IMAGE/xpBarre.jpg');*/
-   height:21px;
-   text-align:center;
-} 
-
-/* Style pour les lignes (autres que la 1ère ligne d'en-tête) des tableaux 
-quadrillés : fond écru et texte centré */
-tr.ligneTabQuad 
-{
-   background-color:#FFFFFF;
-   text-align:center;
-   color:black;
-}
-
-/* STYLES POUR LES TABLEAUX NON QUADRILLÉS */
-
-/* Style des tableaux sans quadrillage : fond écru, épaisseur de la bordure 
-1px */
-table.tabNonQuadrille 
-{
-   background-color:#009879;
-   border-bottom:1px solid #777777;
-   border-right:1px solid #777777;
-   border-left:1px solid #777777;
-   border-top:1px #777777;
-   color:black;
-}
- 
-/* Style pour la ligne d'en-tête des tableaux non quadrillés : fond avec 
-nuances de jaune, texte centré et en gras et trait bas pour séparer l'en-tête du 
-corps du tableau */
-tr.enTeteTabNonQuad td
-{
-   /*background-image:url('IMAGE/xpBarre.jpg');*/
-   height:21px;
-   text-align:center;
-   font-weight:bold;
-   border-bottom:1px solid #777777;
-} 
-
-/* Style pour les lignes (autres que la 1ère ligne d'en-tête) des tableaux non 
-quadrillés : fond écru, hauteur plus importante, texte aligné à gauche et 
-espacement de 3px entre la bordure gauche de chaque cellule et le texte */
-tr.ligneTabNonQuad td
-{
-   background-color: #006C37;
-   height:28px;
-   text-align:left;
-   padding-left:3px;
-   color:black;
-} 
-
-/* STYLE POUR LES MESSAGES D'ERREUR AFFICHÉS EN BAS DE PAGE (FOND : OCRE, 
-COULEUR DU TEXTE : ROSE) */
 
 .msgErreur
 {

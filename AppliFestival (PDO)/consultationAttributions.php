@@ -85,7 +85,6 @@ if ($nbEtab!=0)
             <td width='35%' align='left'>$nbOccupEquipe</td>
          </tr>";
       }
-         
    }
    echo "</tbody></table><br>";
 }
