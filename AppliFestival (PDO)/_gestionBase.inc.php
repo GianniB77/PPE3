@@ -175,7 +175,7 @@ function estModifOffreCorrecte($connexion, $idEtab, $nombreChambres)
 
 function obtenirReqIdNomEquipesAHeberger()
 {
-   $req="SELECT idEquipe, nomEquipe from Equipe where hebergement='O' order by idEquipe";
+   $req="SELECT idEquipe, nomEquipe, idPays from Equipe where hebergement='O' order by idEquipe";
    return $req;
 }
 
@@ -247,7 +247,7 @@ function modifierAttribChamb($connexion, $idEtab, $idEquipe, $nbChambres)
 // dans l'établissement transmis
 function obtenirReqEquipesEtab($idEtab)
 {
-   $req="SELECT distinct Attribution.idEquipe, nomEquipe from Equipe, Attribution where Attribution.idEquipe=Equipe.idEquipe and idEtab='$idEtab'";
+   $req="SELECT distinct Attribution.idEquipe, nomEquipe, idPays from Equipe, Attribution where Attribution.idEquipe=Equipe.idEquipe and idEtab='$idEtab'";
    return $req;
 }
             
@@ -262,6 +262,22 @@ function obtenirNbOccupEquipe($connexion, $idEtab, $idEquipe)
       return $lgAttribEquipe["nombreChambres"];
    else
       return 0;
+}
+
+function obtenirNomPays($idPays,$connexion)
+{
+   $req="SELECT nompays FROM pays where idPays ='$idPays'";
+   $rsPays=$connexion->query($req);
+   $lgPays=$rsPays->fetch();
+   return $lgPays['nompays'];
+}
+
+function obtenirDrapeauPays($idPays,$connexion)
+{
+   $req="SELECT drapeau FROM pays where idPays ='$idPays'";
+   $rsPays=$connexion->query($req);
+   $lgPays=$rsPays->fetch();
+   return $lgPays['drapeau'];
 }
 
 ?>

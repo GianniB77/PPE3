@@ -79,8 +79,10 @@ foreach ($lgEquipe as $row)
 {
 	$idEquipe = $row['idEquipe'];
 	$nom = $row['nomEquipe'];
+	$idPays =$row['idPays'];
+	$nomPays = obtenirNomPays($idPays,$connexion);
 	echo "<tr>";
-	echo "<td width = '25%'>$nom</td>";
+	echo "<td width = '25%'><strong>$nom ($nomPays)</strong></td>";
 	$req = obtenirReqEtablissementsOffrantChambres();
 	$rsEtab = $connexion->query($req);
 	$lgEtab = $rsEtab->fetchALL(PDO::FETCH_ASSOC);

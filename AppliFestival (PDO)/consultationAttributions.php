@@ -53,7 +53,7 @@ if ($nbEtab!=0)
       // AFFICHAGE DE LA 1ÈRE LIGNE D'EN-TÊTE 
       echo "
       <tr>
-         <td colspan='2' align='left'><strong>$nomEtab</strong>&nbsp;
+         <td colspan='6' align='left'><strong>$nomEtab</strong>&nbsp;
          (Offre : $nbOffre&nbsp;&nbsp;Disponibilités : $nbChLib)
          </td>
       </tr>
@@ -64,6 +64,8 @@ if ($nbEtab!=0)
       <tr>
          <td width='65%' align='left'><i><strong>Nom Equipe</strong></i></td>
          <td width='35%' align='left'><i><strong>Chambres attribuées</strong></i>
+         <td width='35%' align='left'><i><strong>Pays d'origine</strong></i>
+         <td width='35%' align='left'><i><strong>Drapeau pays</strong></i>
          </td>
       </tr>";
       // AFFICHAGE DU DÉTAIL DES ATTRIBUTIONS : UNE LIGNE PAR Equipe AFFECTÉ 
@@ -75,14 +77,19 @@ if ($nbEtab!=0)
       {
          $idEquipe=$row['idEquipe'];
          $nomEquipe=$row['nomEquipe'];
+         $idPays=$row['idPays'];
          echo "
          <tr>
             <td width='65%' align='left'>$nomEquipe</td>";
          // On recherche si des chambres ont déjà été attribuées à ce Equipe
          // dans l'établissement
          $nbOccupEquipe=obtenirNbOccupEquipe($connexion, $idEtab, $idEquipe);
+         $nomPays = obtenirNomPays($idPays,$connexion);
+         $drapeau = obtenirDrapeauPays($idPays,$connexion);
          echo "
             <td width='35%' align='left'>$nbOccupEquipe</td>
+            <td width='35%' align='left'>$nomPays</td>
+            <td width='35%' align='left'><img src='$drapeau' id='drapeau equipe'weight='150'height='150'/></td>
          </tr>";
       }
    }
