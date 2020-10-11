@@ -67,6 +67,8 @@ if ($nbEtab!=0)
          <td width='35%' align='left'><i><strong>Chambres attribuées</strong></i>
          <td width='35%' align='left'><i><strong>Pays d'origine</strong></i>
          <td width='35%' align='left'><i><strong>Drapeau pays</strong></i>
+         <td width='35%' align='left'><i><strong>Changer les attributions ?</strong></i>
+         
          </td>
       </tr>";
       // AFFICHAGE DU DÉTAIL DES ATTRIBUTIONS : UNE LIGNE PAR Equipe AFFECTÉ 
@@ -91,10 +93,26 @@ if ($nbEtab!=0)
             <td width='35%' align='left'>$nbOccupEquipe</td>
             <td width='35%' align='left'>$nomPays</td>
             <td width='35%' align='left'><img src='$drapeau' id='drapeau equipe'weight='150'height='150'/></td>
+            <td width='35%' align='left'>
+               <form method='post'>
+                  <select name='formAttribution' onchange='this.form.submit()'>";
+                     for ($i=0; $i <= $nbChLib ; $i++) 
+                     { 
+                        echo "<option value='$i'>$i</option>";
+                     }
+            echo "
+                  </select>
+               </form>
+            </td>
          </tr>";
       }
    }
    echo "</tbody></table>";
+   if (isset($_POST['formAttribution'])) 
+   {
+      $nbChambres = $_POST['formAttribution'];
+      modifierAttribChamb($connexion, $idEtab, $idEquipe, $nbChambres);
+   }
 }
 /*$nbEtab=obtenirNbEtabOffrantChambres($connexion);
 if ($nbEtab!=0)

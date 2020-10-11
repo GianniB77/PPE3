@@ -111,7 +111,6 @@ function creerEtablissement($connexion, $id, $nom, $adresseRue, $codePostal,
          '$nombreChambresOffertes')";
    
    $rsEtab=$connexion->exec($req);
-   $rsEtab=null;
    //mysqli_query($connexion,$req);
 }
 
@@ -222,8 +221,8 @@ function modifierAttribChamb($connexion, $idEtab, $idEquipe, $nbChambres)
    if ($nbChambres==0)
    {
       $req="DELETE from Attribution where idEtab='$idEtab' and idEquipe='$idEquipe'";
-      $rsAttrib1=$connexion->exec($req);
-      $rsAttrib1=null;
+      $rsAttrib1=$connexion->prepare($req);
+      $rsAttrib1->execute();
    } 
    else
    {
@@ -231,17 +230,18 @@ function modifierAttribChamb($connexion, $idEtab, $idEquipe, $nbChambres)
       {
          $req="UPDATE Attribution set nombreChambres=$nbChambres where idEtab=
               '$idEtab' and idEquipe='$idEquipe'";
-         $rsAttrib2=$connexion->exec($req);
-         $rsAttrib2=null;
+         $rsAttrib2=$connexion->prepare($req);
+         $rsAttrib2->execute();
       }  
       else
       {
          $req="INSERT into Attribution values('$idEtab','$idEquipe', $nbChambres)";
-         $rsAttrib3=$connexion->exec($req);
-         $rsAttrib3=null;
+         $rsAttrib3=$connexion->prepare($req);
+         $rsAttrib3->execute();
       }
    }
 }
+
 
 // Retourne la requête permettant d'obtenir les id et noms des Equipes affectés
 // dans l'établissement transmis
