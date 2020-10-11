@@ -94,7 +94,7 @@ if ($nbEtab!=0)
          </tr>";
       }
    }
-   echo "</tbody></table><br>";
+   echo "</tbody></table>";
 }
 /*$nbEtab=obtenirNbEtabOffrantChambres($connexion);
 if ($nbEtab!=0)
