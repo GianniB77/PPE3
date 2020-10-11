@@ -45,7 +45,9 @@ if ($action == 'validerModifAttrib')
 	$nbChambres = $_REQUEST['nbChambres'];
 	modifierAttribChamb($connexion,$idEtab,$idEquipe,$nbChambres);
 }
-echo "<table width='80%' cellspacing='0' cellpadding='0' align='center'class='styled-table'>";
+echo "
+<p> <a href=\"index.php\">Accueil </a> > <a href=\"consultationAttributions.php\">Consultation des attributions </a> > Modification des attributions</p>
+<table width='80%' cellspacing='0' cellpadding='0' align='center'class='styled-table'>";
 // AFFICHAGE DE LA 1ÈRE LIGNE D'EN-TÊTE
 echo "<thead>";
 echo "<tr>";

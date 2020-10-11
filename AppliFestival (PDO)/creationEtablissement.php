@@ -86,6 +86,7 @@ if ($action=='validerCreEtab')
 }
 
 echo "
+<p> <a href=\"index.php\">Accueil </a> > <a href=\"listeEtablissements.php\">Liste d'établissements </a> > Création d'un établissement</p>
 <form method='POST' action='creationEtablissement.php?'>
    <input type='hidden' value='validerCreEtab' name='action'>
    <table width='85%' align='center' cellspacing='0' cellpadding='0' class='styled-table'>

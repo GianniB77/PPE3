@@ -26,6 +26,7 @@ if (!selectBase($connexion))
 // ÉTABLISSEMENT
 
 echo "
+<p> <a href=\"index.php\">Accueil </a> > Liste des établissements </p>
 <table width='60%' cellspacing='0' cellpadding='0' align='center' class='styled-table'>
    <thead>
       <tr>

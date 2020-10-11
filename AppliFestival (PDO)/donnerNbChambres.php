@@ -28,6 +28,7 @@ $idEquipe=$_REQUEST['idEquipe'];
 $nbChambres=$_REQUEST['nbChambres'];
 
 echo "
+<p> <a href=\"index.php\">Accueil </a> > <a href=\"consultationAttributions.php\">Consultation des attributions </a> > <a href=\"modificationAttributions.php?action=demanderModifAttrib\">Modification des attributions </a> > Attributions des chambres</p>
 <form method='POST' action='modificationAttributions.php'>
 	<input type='hidden' value='validerModifAttrib' name='action'>
    <input type='hidden' value='$idEtab' name='idEtab'>

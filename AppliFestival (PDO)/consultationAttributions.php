@@ -29,6 +29,7 @@ $nbEtab=obtenirNbEtabOffrantChambres($connexion);
 if ($nbEtab!=0) 
 {
    echo "
+   <p> <a href=\"index.php\">Accueil </a> > Consultation des attributions</p>
    <table width='75%' cellspacing='0' cellpadding='0' align='center'
    <tr><td>
    <a href='modificationAttributions.php?action=demanderModifAttrib'>

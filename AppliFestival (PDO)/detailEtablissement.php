@@ -40,6 +40,7 @@ $prenomResponsable=$lgEtab['prenomResponsable'];
 $nombreChambresOffertes=$lgEtab['nombreChambresOffertes'];
 
 echo "
+<p> <a href=\"index.php\">Accueil </a> > <a href=\"listeEtablissements.php\">Liste d'établissements </a> > Détail de l'établissement</p>
 <table width='60%' cellspacing='0' cellpadding='0' align='center' 
 class='styled-table'>
    <thead>

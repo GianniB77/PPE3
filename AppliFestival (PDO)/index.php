@@ -2,7 +2,7 @@
 
 include ("_debut.inc.php");
 include ("_fin.inc.php");
-echo " 
+echo "  
       <h3 align='center'>Bienvenue sur l'application d'hébergement</h3>
       <p align='center' class='intro'>
       <img src='IMAGE/sport.png' align='center'/><br>
