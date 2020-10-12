@@ -54,17 +54,22 @@ echo "
       echo "<a href='modificationEtablissement.php?action=demanderModifEtab&amp;id=".$id."'>";
       echo "<img src='IMAGE/modifier.png'weight='50' height='50'/> </a></td>";
       $nbattrib = obtenirNbOccup($connexion,$id);
-      echo "<td width='16%'> <img src='IMAGE/attributions.png'weight='50' height='50'/>".$nbattrib."</td>";
+      echo "<td width='16%'> <img src='IMAGE/attributions.png'weight='50' height='50'/>".$nbattrib."/".$nbOffre."</td>";
       if ($nbOffre == $nbattrib) 
       {
          echo "<td width='16%' align='center'>";
          echo "Complet";
          echo "</td>";
       }
-      else
+      else if ($nbattrib != 0)
       {
          echo "<td width='16%' align='center'>";
          echo "Non Complet";
+         echo "</td>";
+      }
+      else{
+         echo "<td width='16%' align='center'>";
+         echo "Pas de réservation";
          echo "</td>";
       }
       if (!existeAttributionsEtab($connexion, $id)) 

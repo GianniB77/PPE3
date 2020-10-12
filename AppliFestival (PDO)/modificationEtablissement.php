@@ -88,7 +88,7 @@ if ($action=='validerModifEtab')
 
 echo "
 <p> <a href=\"index.php\">Accueil </a> > <a href=\"listeEtablissements.php\">Liste d'établissements </a> > Modification de l'établissement</p>
-<form method='POST' action='modificationEtablissement.php?'>
+<form method='POST' action='modificationEtablissement.php?' onsubmit='location.replace('listeEtablissements.php')'>
    <input type='hidden' value='validerModifEtab' name='action'>
    <table width='90%' cellspacing='0' cellpadding='0' align='center' class='styled-table'>
       <thead>
@@ -185,7 +185,7 @@ echo "
    <table align='center' cellspacing='15' cellpadding='0'>
       <tr>
          <td align='right'><input type='submit' value='Valider' name='valider'>
-         </td>
+         <input type='hidden' name='listeEtablissements' value='listeEtablissements.php'>
          <td align='left'><input type='reset' value='Annuler' name='annuler'>
          </td>
       </tr>

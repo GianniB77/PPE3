@@ -51,7 +51,7 @@ echo "
 // AFFICHAGE DE LA 1ÈRE LIGNE D'EN-TÊTE
 echo "<thead>";
 echo "<tr>";
-echo "<td colspan=6><strong>Attributions</strong></td>";
+echo "<td colspan=15><strong>Attributions</strong></td>";
 echo "</tr>";
 // AFFICHAGE DE LA 2ÈME LIGNE D'EN-TÊTE (ÉTABLISSEMENTS)
 echo "<tr>";
