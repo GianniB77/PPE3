@@ -102,6 +102,11 @@ if ($nbEtab!=0)
                      }
             echo "
                   </select>
+				  <input type='hidden' value='$idEtab' name='idEtab'>
+				  <input type='hidden' value='$idEquipe' name='idEquipe'>
+				  <noscript> 
+					<input type='submit' value='submit'>
+				  </noscript> 
                </form>
             </td>
          </tr>";
@@ -111,6 +116,8 @@ if ($nbEtab!=0)
    if (isset($_POST['formAttribution'])) 
    {
       $nbChambres = $_POST['formAttribution'];
+	  $idEtab = $_POST['idEtab'];
+	  $idEquipe = $_POST['idEquipe'];
       modifierAttribChamb($connexion, $idEtab, $idEquipe, $nbChambres);
    }
 }
