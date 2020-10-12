@@ -281,4 +281,5 @@ function obtenirSommeAttrib($connexion,$idEquipe)
 	$rsAttrib = $connexion->query($req);
 	$lgAttrib = $rsAttrib->fetch();
 	return $lgAttrib['totalChambresAttrib'];
+}
 ?>

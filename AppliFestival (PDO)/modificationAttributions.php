@@ -29,7 +29,7 @@ if (!selectBase($connexion))
 // Recherche du nombre d'établissements offrant des chambres pour le 
 // dimensionnement des colonnes
 $nbEtabOffrantChambres = obtenirNbEtabOffrantChambres($connexion);
-$nb = $nbEtabOffrantChambres + 1;
+//$nb = $nbEtabOffrantChambres + 1;
 // Détermination du pourcentage de largeur des colonnes "établissements"
 $pourcCol = 50/$nbEtabOffrantChambres;
 
@@ -51,7 +51,7 @@ echo "
 // AFFICHAGE DE LA 1ÈRE LIGNE D'EN-TÊTE
 echo "<thead>";
 echo "<tr>";
-echo "<td colspan=$nb><strong>Attributions</strong></td>";
+echo "<td colspan=6><strong>Attributions</strong></td>";
 echo "</tr>";
 // AFFICHAGE DE LA 2ÈME LIGNE D'EN-TÊTE (ÉTABLISSEMENTS)
 echo "<tr>";
@@ -71,7 +71,7 @@ foreach ($lgEtab as $row)
     echo "<i>Disponibilités : $nbChLib </i>";
     echo "<br> $nom </td>";
 }
-echo"<td valign='top' width='$pourcCol%'>Total de chambres</td>";
+echo "<td>Total de chambres</td>";
 echo "</tr>";
 echo "</thead>";
 echo "<tbody>";
@@ -129,8 +129,9 @@ foreach ($lgEquipe as $row)
 				echo "<td class = 'reserveSiLien'>&nbsp;</td>";
 			}
 		}
-		echo"<td align='center'>$total</td>";
 	}
+	echo "<td>$total</td>";
+	echo "</tr>";
 }
 echo "</tbody></table>";
 echo "<table align='center' width='80%'>

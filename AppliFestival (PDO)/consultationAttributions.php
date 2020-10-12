@@ -25,6 +25,16 @@ if (!selectBase($connexion))
 
 // IL FAUT QU'IL Y AIT AU MOINS UN ÉTABLISSEMENT OFFRANT DES CHAMBRES POUR  
 // AFFICHER LE LIEN VERS LA MODIFICATION
+
+if (isset($_POST['formAttribution'])) 
+{
+   $nbChambres = $_POST['formAttribution'];
+   $idEtab = $_POST['idEtab'];
+   $idEquipe = $_POST['idEquipe'];
+   modifierAttribChamb($connexion, $idEtab, $idEquipe, $nbChambres);
+   echo "<button onClick='window.location.reload();' class='button'></button>";
+}
+
 $nbEtab=obtenirNbEtabOffrantChambres($connexion);
 if ($nbEtab!=0) 
 {
@@ -96,7 +106,7 @@ if ($nbEtab!=0)
             <td width='35%' align='left'>
                <form method='post'>
                   <select name='formAttribution' onchange='this.form.submit()'>";
-                     for ($i=0; $i <= $nbChLib ; $i++) 
+                     for ($i=0; $i <= $nbOffre ; $i++) 
                      { 
                         echo "<option value='$i'>$i</option>";
                      }
@@ -113,13 +123,7 @@ if ($nbEtab!=0)
       }
    }
    echo "</tbody></table>";
-   if (isset($_POST['formAttribution'])) 
-   {
-      $nbChambres = $_POST['formAttribution'];
-	  $idEtab = $_POST['idEtab'];
-	  $idEquipe = $_POST['idEquipe'];
-      modifierAttribChamb($connexion, $idEtab, $idEquipe, $nbChambres);
-   }
+
 }
 /*$nbEtab=obtenirNbEtabOffrantChambres($connexion);
 if ($nbEtab!=0)
