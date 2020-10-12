@@ -71,6 +71,7 @@ foreach ($lgEtab as $row)
     echo "<i>Disponibilités : $nbChLib </i>";
     echo "<br> $nom </td>";
 }
+echo"<td valign='top' width='$pourcCol%'>Total de chambres</td>";
 echo "</tr>";
 echo "</thead>";
 echo "<tbody>";
@@ -83,6 +84,7 @@ foreach ($lgEquipe as $row)
 	$nom = $row['nomEquipe'];
 	$idPays =$row['idPays'];
 	$nomPays = obtenirNomPays($idPays,$connexion);
+	$total = obtenirSommeAttrib($connexion,$idEquipe);
 	echo "<tr>";
 	echo "<td width = '25%'><strong>$nom ($nomPays)</strong></td>";
 	$req = obtenirReqEtablissementsOffrantChambres();
@@ -127,6 +129,7 @@ foreach ($lgEquipe as $row)
 				echo "<td class = 'reserveSiLien'>&nbsp;</td>";
 			}
 		}
+		echo"<td align='center'>$total</td>";
 	}
 }
 echo "</tbody></table>";

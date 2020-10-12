@@ -275,4 +275,10 @@ function obtenirDrapeauPays($idPays,$connexion)
    return $lgPays['drapeau'];
 }
 
+function obtenirSommeAttrib($connexion,$idEquipe)
+{
+	$req = "SELECT SUM(nombreChambres) as totalChambresAttrib FROM Attribution WHERE idEquipe='$idEquipe'";
+	$rsAttrib = $connexion->query($req);
+	$lgAttrib = $rsAttrib->fetch();
+	return $lgAttrib['totalChambresAttrib'];
 ?>
