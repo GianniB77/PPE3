@@ -221,8 +221,6 @@ function modifierAttribChamb($connexion, $idEtab, $idEquipe, $nbChambres)
    if ($nbChambres==0)
    {
       $req="DELETE from Attribution where idEtab='$idEtab' and idEquipe='$idEquipe'";
-      $rsAttrib1=$connexion->prepare($req);
-      $rsAttrib1->execute();
    } 
    else
    {
@@ -230,16 +228,13 @@ function modifierAttribChamb($connexion, $idEtab, $idEquipe, $nbChambres)
       {
          $req="UPDATE Attribution set nombreChambres=$nbChambres where idEtab=
               '$idEtab' and idEquipe='$idEquipe'";
-         $rsAttrib2=$connexion->prepare($req);
-         $rsAttrib2->execute();
       }  
       else
       {
          $req="INSERT into Attribution values('$idEtab','$idEquipe', $nbChambres)";
-         $rsAttrib3=$connexion->prepare($req);
-         $rsAttrib3->execute();
       }
    }
+   $connexion->exec($req);
 }
 
 
