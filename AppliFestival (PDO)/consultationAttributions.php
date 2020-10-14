@@ -55,8 +55,8 @@ if ($nbEtab!=0)
       $idEtab=$row['idEtab'];
       $nomEtab=$row['nomEtab'];
       echo "<table width='75%' cellspacing='0' cellpadding='0' align='center' 
-      class='styled-table'>";
-      echo "<thead>";
+      class='styled-table'>
+      <thead>";
       $nbOffre=$row['nombreChambresOffertes'];
       $nbOccup=obtenirNbOccup($connexion, $idEtab);
       // Calcul du nombre de chambres libres dans l'établissement
